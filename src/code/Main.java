@@ -10,6 +10,7 @@ public class Main {
     public static void main(String args[]) {
         System.out.println(hasUnique("hello"));
         System.out.println(removeDupes("hello"));
+        System.out.println("testing");
     }
 
     public static boolean hasUnique(String s) {
