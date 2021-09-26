@@ -1,10 +1,7 @@
 package code;
 
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String args[]) {
@@ -51,5 +48,18 @@ public class Main {
         return a;
     }
 
+    public static void deleteDuplicateNodes(LinkedListNode head) {
+        HashSet<Integer> uniqueNodes= new HashSet<>();
+        uniqueNodes.add(head.value);
+
+        LinkedListNode current = head;
+        while (current != null) {
+            current = current.next;
+
+            if (uniqueNodes.contains(current.value)) {
+                current.prev.next = current.next;
+            }
+        }
+    }
 
 }
