@@ -8,6 +8,7 @@ public class Main {
         System.out.println(hasUnique("hello"));
         System.out.println(removeDupes("hello"));
         System.out.println("testing");
+        System.out.println(fibonacciAdvanced(24));
     }
 
     public static boolean hasUnique(String s) {
@@ -59,6 +60,22 @@ public class Main {
             if (uniqueNodes.contains(current.value)) {
                 current.prev.next = current.next;
             }
+        }
+    }
+
+    public static int fibonacci(int n) {
+        if (n <= 2) return 1;
+        else return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static int[] fibArray = new int[26];
+    public static int fibonacciAdvanced(int n) {
+        if (n<=2) return 1;
+        else if (fibArray[n] != 0) return fibArray[n];
+        else {
+            int fibValue = fibonacci(n-2) + fibonacci(n-1);
+            fibArray[n] = fibValue;
+            return fibValue;
         }
     }
 
