@@ -7,8 +7,7 @@ public class Main {
     public static void main(String args[]) {
         System.out.println(hasUnique("hello"));
         System.out.println(removeDupes("hello"));
-        System.out.println("testing");
-        System.out.println(fibonacciAdvanced(24));
+        System.out.println(isUnique("hello"));
     }
 
     public static boolean hasUnique(String s) {
@@ -39,44 +38,12 @@ public class Main {
 
     // remove duplicates in string
     public static ArrayList<String> removeDupes(String s) {
-        ArrayList<String> a = new ArrayList<>();
-        LinkedHashSet<String> set = new LinkedHashSet<>();
-        a.addAll(List.of(s.split("")));
-        set.addAll(a);
+        ArrayList<String> a = new ArrayList<>(List.of(s.split("")));
+        LinkedHashSet<String> set = new LinkedHashSet<>(a);
         a.clear();
         a.addAll(set);
 
         return a;
-    }
-
-    public static void deleteDuplicateNodes(LinkedListNode head) {
-        HashSet<Integer> uniqueNodes= new HashSet<>();
-        uniqueNodes.add(head.value);
-
-        LinkedListNode current = head;
-        while (current != null) {
-            current = current.next;
-
-            if (uniqueNodes.contains(current.value)) {
-                current.prev.next = current.next;
-            }
-        }
-    }
-
-    public static int fibonacci(int n) {
-        if (n <= 2) return 1;
-        else return fibonacci(n - 1) + fibonacci(n - 2);
-    }
-
-    public static int[] fibArray = new int[26];
-    public static int fibonacciAdvanced(int n) {
-        if (n<=2) return 1;
-        else if (fibArray[n] != 0) return fibArray[n];
-        else {
-            int fibValue = fibonacci(n-2) + fibonacci(n-1);
-            fibArray[n] = fibValue;
-            return fibValue;
-        }
     }
 
 }

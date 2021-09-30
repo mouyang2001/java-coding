@@ -1,4 +1,4 @@
-package code;
+package code.adt;
 
 public class LinkedListNode {
     public LinkedListNode next;

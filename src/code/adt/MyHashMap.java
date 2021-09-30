@@ -1,4 +1,4 @@
-package code;
+package code.adt;
 
 public class MyHashMap<K, V> {
     private class Entry<K, V> {
