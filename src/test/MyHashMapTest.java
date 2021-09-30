@@ -6,9 +6,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import code.MyHashMap;
+import code.adt.MyHashMap;
 
-public class Testing {
+public class MyHashMapTest {
     MyHashMap<Integer, String> map;
 
     @Before
