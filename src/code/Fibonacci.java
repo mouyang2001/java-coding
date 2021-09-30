@@ -1,7 +1,5 @@
 package code;
 
-import java.util.Arrays;
-
 public class Fibonacci {
     private final int[] mem;
 
