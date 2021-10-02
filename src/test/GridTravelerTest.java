@@ -22,4 +22,12 @@ public class GridTravelerTest {
         assertEquals(3, g.gridTraveler(3,2));
         assertEquals(6, g.gridTraveler(3,3));
     }
+
+    @Test
+    public void testGridTravelerOnBasicsMatrix() {
+        assertEquals(1, g.gridTravelerTable(1,1));
+        assertEquals(3, g.gridTravelerTable(2,3));
+        assertEquals(3, g.gridTravelerTable(3,2));
+        assertEquals(6, g.gridTravelerTable(3,3));
+    }
 }
