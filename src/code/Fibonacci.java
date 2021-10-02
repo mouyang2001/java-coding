@@ -23,6 +23,12 @@ public class Fibonacci {
         }
     }
 
+    /**
+     * Calculate Fibonacci numbers up to nth term.
+     * Method utilizes tabulation.
+     * @param n the term to calculate up to.
+     * @return fibonacci calculated value.
+     */
     public int calculateTabulation(int n) {
         int[] table = new int[n+10];
         table[1] = 1;
