@@ -24,7 +24,7 @@ public class GridTravelerTest {
     }
 
     @Test
-    public void testGridTravelerOnBasicsMatrix() {
+    public void testGridTravelerOnBasicsTabulation() {
         assertEquals(1, g.gridTravelerTable(1,1));
         assertEquals(3, g.gridTravelerTable(2,3));
         assertEquals(3, g.gridTravelerTable(3,2));

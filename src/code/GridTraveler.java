@@ -15,6 +15,7 @@ public class GridTraveler {
      *
      * @param r rows.
      * @param c columns.
+     * @return number of possible paths.
      */
     public int gridTraveler(int r, int c) {
         String key = String.valueOf(r) + ',' + c;
