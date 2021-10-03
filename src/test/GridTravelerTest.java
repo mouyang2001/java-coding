@@ -30,4 +30,9 @@ public class GridTravelerTest {
         assertEquals(3, g.gridTravelerTable(3,2));
         assertEquals(6, g.gridTravelerTable(3,3));
     }
+
+    @Test
+    public void testGridTravelerOnLargeValuesTabulation() {
+        assertEquals(705432, g.gridTraveler(12,12));
+    }
 }
