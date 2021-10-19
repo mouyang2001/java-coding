@@ -1,13 +1,17 @@
 package code;
 
-import java.sql.Array;
+import code.http.Requests;
+
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
-    public static void main(String args[]) {
-        System.out.println(hasUnique("hello"));
-        System.out.println(removeDupes("hello"));
-        System.out.println(isUnique("hello"));
+    public static void main(String[] args) {
+        try {
+            Requests.getTodoMethod1();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static boolean hasUnique(String s) {

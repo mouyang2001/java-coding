@@ -1,6 +1,5 @@
 package test;
 
-import code.GridTraveler;
 import org.junit.runners.Suite;
 import org.junit.runner.RunWith;
 
