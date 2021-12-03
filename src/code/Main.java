@@ -7,12 +7,6 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-//        try {
-//            Requests.getTodoMethod1();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
         letterCombinations("23");
     }
 
