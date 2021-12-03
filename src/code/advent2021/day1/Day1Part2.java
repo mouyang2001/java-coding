@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class day1Part1 {
+public class Day1Part2 {
     public static void main(String[] args) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line;
@@ -19,10 +19,10 @@ public class day1Part1 {
                 depths.add(Integer.valueOf(line));
             }
 
-            for (int i = 0; i < depths.size()-1; i++) {
-                if (depths.get(i) < depths.get(i+1)) {
-                    count++;
-                }
+            for (int i = 0; i < depths.size()-3; i++) {
+                int window1 = depths.get(i) + depths.get(i+1) + depths.get(i+2);
+                int window2 = depths.get(i+1) + depths.get(i+2) + depths.get(i+3);
+                if (window1 < window2) count++;
             }
 
             System.out.println(count);
