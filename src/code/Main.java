@@ -7,11 +7,36 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            Requests.getTodoMethod1();
-        } catch (IOException e) {
-            e.printStackTrace();
+//        try {
+//            Requests.getTodoMethod1();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        letterCombinations("23");
+    }
+
+    public static List<String> letterCombinations(String digits) {
+        String[][] dictionary = {
+                {}, // 0
+                {}, // 1
+                {"a", "b", "c"}, // 2
+                {"d", "e", "f"},
+                {"g", "h", "i"},
+                {"j", "k", "l"},
+                {"m", "n", "o"},
+                {"p", "q", "r", "s"},
+                {"t", "u", "v"},
+                {"w", "x", "y", "z"}
+        };
+
+        for (int i = 0; i < digits.length(); i++) {
+            int num = digits.charAt(i) - '0';
+            System.out.println(num);
+//            System.out.println(Arrays.toString(dictionary[number]));
         }
+
+        return null;
     }
 
     public static boolean hasUnique(String s) {
