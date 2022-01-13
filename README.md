@@ -1,2 +1,2 @@
 # java-coding
-repo for coding problems
+repo for java coding problems
