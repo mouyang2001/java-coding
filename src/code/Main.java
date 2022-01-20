@@ -7,7 +7,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        letterCombinations("23");
+        System.out.println(isHappy(82));
+        System.out.println(sumOfDigits(1676));
     }
 
     public static List<String> letterCombinations(String digits) {
@@ -102,4 +103,28 @@ public class Main {
         return res;
     }
 
+    public static boolean isHappy(int n) {
+        for (int i = 0; i < 100000; i++) {
+            if (n == 1) return true;
+
+            int square = 0;
+            int m = n;
+            while(m > 0) {
+                square += (m%10) * (m%10);
+                m/=10;
+            }
+            n=square;
+        }
+        return false;
+    }
+
+    public static int sumOfDigits(int n) {
+        int sum = 0;
+        while (n > 0) {
+            sum += n%10;
+            n /= 10;
+        }
+
+        return sum;
+    }
 }
