@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 @Suite.SuiteClasses({
         MyHashMapTest.class,
         GridTravelerTest.class,
-        FibonacciTest.class
+        FibonacciTest.class,
+        LeetCodeTest.class
 })
 public class AllTests {};
