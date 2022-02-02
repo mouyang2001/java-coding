@@ -1,5 +1,6 @@
 package code;
 
+import java.sql.Array;
 import java.util.*;
 
 public class LeetCode {
@@ -141,4 +142,98 @@ public class LeetCode {
         return k;
     }
 
+    /**
+     * Find anagrams solution using hashmaps, slowest.
+     * @param s
+     * @param p
+     * @return
+     */
+    public static List<Integer> findAnagrams(String s, String p) {
+        if (p.length() > s.length()) return new ArrayList<>();
+
+        List<Integer> res = new ArrayList<>();
+        HashMap<Character, Integer> pCount = new HashMap<>();
+        HashMap<Character, Integer> sCount = new HashMap<>();
+
+        for (int i = 0; i < p.length(); i++) {
+            pCount.put(p.charAt(i), pCount.getOrDefault(p.charAt(i), 0) + 1);
+            sCount.put(s.charAt(i), sCount.getOrDefault(s.charAt(i), 0) + 1);
+        }
+
+        if (pCount.equals(sCount)) res.add(0);
+
+        int l = 0;
+        for (int r = p.length(); r < s.length(); r++) {
+            sCount.put(s.charAt(r), sCount.getOrDefault(s.charAt(r), 0) + 1);
+            sCount.put(s.charAt(l), sCount.get(s.charAt(l)) - 1);
+
+            if (sCount.get(s.charAt(l)) == 0) sCount.remove(s.charAt(l));
+
+            l++;
+
+            if (sCount.equals(pCount)) res.add(l);
+        }
+
+        return res;
+    }
+
+    /**
+     * Find anagrams solution using int[26] arrays.
+     * @param s
+     * @param p
+     * @return
+     */
+    public static List<Integer> findAnagrams2(String s, String p) {
+        List<Integer> result = new ArrayList<Integer>();
+        if(p.length() > s.length()) return result;
+
+        int[] sCount = new int[26];
+        int[] pCount = new int[26];
+
+        for(int i = 0; i < p.length(); i++){
+            pCount[(int) p.charAt(i) - 'a']++;
+            sCount[(int) s.charAt(i) - 'a']++;
+        }
+
+        if(Arrays.equals(pCount, sCount)) result.add(0);
+
+        int l = 0;
+        for(int r = p.length(); r < s.length(); r++){
+            sCount[(int)s.charAt(r) - 'a']++;
+            sCount[(int)s.charAt(l) - 'a']--;
+            if (Arrays.equals(pCount, sCount)) result.add(l+1);
+
+            l++;
+        }
+        return result;
+    }
+
+    /**
+     * Find anagrams clean version but 2nd fastest.
+     * @param s
+     * @param p
+     * @return
+     */
+    public static List<Integer> findAnagrams3(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        if(p.length() > s.length()) return result;
+
+        int[] sCount = new int[26];
+        int[] pCount = new int[26];
+
+        for(int i = 0; i < p.length(); i++){
+            pCount[(int) p.charAt(i) - 'a']++;
+            sCount[(int) s.charAt(i) - 'a']++;
+        }
+
+        if(Arrays.equals(pCount, sCount)) result.add(0);
+
+        for (int i = 0; i < s.length() - p.length(); i++) {
+            sCount[(int)s.charAt(i + p.length()) - 'a']++;
+            sCount[(int)s.charAt(i) - 'a']--;
+            if (Arrays.equals(pCount, sCount)) result.add(i+1);
+        }
+
+        return result;
+    }
 }
