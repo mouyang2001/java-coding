@@ -7,8 +7,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(LeetCode.findAnagrams("cbaebabacd", "abc"));
-        System.out.println(LeetCode.findAnagrams2("cbaebabacd", "abc"));
-        System.out.println(LeetCode.findAnagrams3("cbaebabacd", "abc"));
+        int[] i = {2,7,11,15};
+        System.out.println(Arrays.toString(LeetCode.twoSum(i, 9)));
     }
 }

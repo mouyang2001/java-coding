@@ -236,4 +236,25 @@ public class LeetCode {
 
         return result;
     }
+
+    public static int arrangeCoins(int n) {
+        // Note long is better for storing larger numbers
+        // Whereas double is better for more precise (more decimal points).
+        return (int) (Math.sqrt(8* (long) n + 1) - 1) / 2;
+    }
+
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int c = target - nums[i];
+            if (map.containsKey(c)) {
+                return new int[]{map.get(c), i};
+            } else {
+                map.put(nums[i], i);
+            }
+        }
+
+        return null;
+    }
 }
