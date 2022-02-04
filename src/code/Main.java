@@ -3,6 +3,8 @@ package code;
 import code.http.Requests;
 import code.patterns.memento.Editor;
 import code.patterns.memento.History;
+import code.patterns.state.Canvas;
+import code.patterns.state.SelectionTool;
 
 import java.io.IOException;
 import java.util.*;
@@ -12,6 +14,8 @@ public class Main {
         leetcodeDebugging();
 
         mementoExample();
+
+        stateExample();
     }
 
     public static void leetcodeDebugging() {
@@ -33,5 +37,13 @@ public class Main {
         editor.restore(history.pop());
 
         System.out.println(editor.getContent());
+    }
+
+    public static void stateExample() {
+        Canvas canvas = new Canvas();
+
+        canvas.setCurrentTool(new SelectionTool());
+        canvas.mouseDown();
+        canvas.mouseUp();
     }
 }
