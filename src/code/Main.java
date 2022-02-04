@@ -19,8 +19,8 @@ public class Main {
     }
 
     public static void leetcodeDebugging() {
-        int[] i = {2,7,11,15};
-        System.out.println(Arrays.toString(LeetCode.twoSum(i, 9)));
+        int[] nums = {1,5,6,2,3,7,2,8};
+        System.out.println(LeetCode.binarySearch(nums, 2));
     }
 
     public static void mementoExample() {

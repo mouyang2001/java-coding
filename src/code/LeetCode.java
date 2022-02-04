@@ -257,4 +257,45 @@ public class LeetCode {
 
         return null;
     }
+
+    public static int findMaxLengthContiguous(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 0) nums[i] = -1;
+        }
+
+        int sum = 0;
+        int max = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        for(int i = 0; i < nums.length; i++){
+            sum += nums[i];
+            if(map.containsKey(sum)){
+                int prevIndex = map.get(sum);
+                max = Math.max(max, i - prevIndex);
+            }
+            else{
+                map.put(sum, i);
+            }
+        }
+        return max;
+    }
+
+    public static int binarySearch(int[] nums, int target) {
+        Arrays.sort(nums);
+
+        int l = 0, r = nums.length -1;
+        while (l <= r) {
+            int m = (l+r) / 2;
+
+            if (target < nums[m]) r = m;
+            else if (target > nums[m]) l = m;
+            else return m;
+        }
+
+        return -1;
+    }
 }
