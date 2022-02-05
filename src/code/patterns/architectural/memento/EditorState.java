@@ -1,4 +1,4 @@
-package code.patterns.memento;
+package code.patterns.architectural.memento;
 
 /**
  * Memento class.

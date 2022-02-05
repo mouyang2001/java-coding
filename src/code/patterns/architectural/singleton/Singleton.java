@@ -1,4 +1,4 @@
-package code.patterns.singleton;
+package code.patterns.architectural.singleton;
 
 import java.util.Random;
 

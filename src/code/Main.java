@@ -1,23 +1,25 @@
 package code;
 
-import code.http.Requests;
-import code.patterns.memento.Editor;
-import code.patterns.memento.History;
-import code.patterns.singleton.Singleton;
-import code.patterns.state.Canvas;
-import code.patterns.state.SelectionTool;
-
-import java.io.IOException;
-import java.security.Signature;
-import java.util.*;
+import code.patterns.architectural.memento.Editor;
+import code.patterns.architectural.memento.History;
+import code.patterns.architectural.singleton.Singleton;
+import code.patterns.architectural.state.Canvas;
+import code.patterns.architectural.state.SelectionTool;
+import code.patterns.design.mvc.Student;
+import code.patterns.design.mvc.StudentController;
+import code.patterns.design.mvc.StudentView;
 
 public class Main {
     public static void main(String[] args) {
         leetcodeDebugging();
 
+        // Design Patterns
         mementoExample();
         stateExample();
         singletonExample();
+
+        // Architectural Patterns
+        mvcExample();
     }
 
     public static void leetcodeDebugging() {
@@ -55,5 +57,20 @@ public class Main {
 
         System.out.println(singletonA.getRandomNumber());
         System.out.println(singletonB.getRandomNumber());
+    }
+
+    public static void mvcExample() {
+        Student model = fetchStudentFromDatabase();
+        StudentView view = new StudentView();
+
+        StudentController controller = new StudentController(model, view);
+
+        controller.updateView();
+    }
+    public static Student fetchStudentFromDatabase() {
+        Student student = new Student();
+        student.setName("Matthew");
+        student.setRollNo("13PR");
+        return student;
     }
 }
