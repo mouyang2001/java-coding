@@ -3,10 +3,12 @@ package code;
 import code.http.Requests;
 import code.patterns.memento.Editor;
 import code.patterns.memento.History;
+import code.patterns.singleton.Singleton;
 import code.patterns.state.Canvas;
 import code.patterns.state.SelectionTool;
 
 import java.io.IOException;
+import java.security.Signature;
 import java.util.*;
 
 public class Main {
@@ -14,8 +16,8 @@ public class Main {
         leetcodeDebugging();
 
         mementoExample();
-
         stateExample();
+        singletonExample();
     }
 
     public static void leetcodeDebugging() {
@@ -45,5 +47,13 @@ public class Main {
         canvas.setCurrentTool(new SelectionTool());
         canvas.mouseDown();
         canvas.mouseUp();
+    }
+
+    public static void singletonExample() {
+        Singleton singletonA = Singleton.getInstance();
+        Singleton singletonB = Singleton.getInstance();
+
+        System.out.println(singletonA.getRandomNumber());
+        System.out.println(singletonB.getRandomNumber());
     }
 }
