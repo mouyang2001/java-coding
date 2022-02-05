@@ -317,8 +317,4 @@ public class LeetCode {
 
         return l;
     }
-
-    public static int search(int[] nums, int target) {
-
-    }
 }
