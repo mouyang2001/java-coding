@@ -291,11 +291,34 @@ public class LeetCode {
         while (l <= r) {
             int m = (l+r) / 2;
 
-            if (target < nums[m]) r = m;
-            else if (target > nums[m]) l = m;
+            if (target < nums[m]) r = m - 1;
+            else if (target > nums[m]) l = m - 1;
             else return m;
         }
 
         return -1;
+    }
+
+    /**
+     * Find the smallest value index in sorted array using binary search.
+     * This is assuming sorted array is scrambled.
+     * @param nums
+     * @return
+     */
+    public static int findSmallestIndexBinary(int[] nums) {
+        int l = 0;
+        int r = nums.length - 1;
+
+        while (l < r) {
+            int m = (l+r)/2;
+            if (nums[m] > nums[r]) l = m + 1;
+            else r = m;
+        }
+
+        return l;
+    }
+
+    public static int search(int[] nums, int target) {
+
     }
 }
