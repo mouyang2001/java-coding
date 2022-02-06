@@ -4,6 +4,8 @@ import code.patterns.design.behavioral.memento.Editor;
 import code.patterns.design.behavioral.memento.History;
 import code.patterns.design.behavioral.observer.Channel;
 import code.patterns.design.behavioral.observer.Subscriber;
+import code.patterns.design.creational.builder.User;
+import code.patterns.design.creational.builder.UserBuilder;
 import code.patterns.design.creational.singleton.Singleton;
 import code.patterns.design.behavioral.state.Canvas;
 import code.patterns.design.behavioral.state.SelectionTool;
@@ -16,10 +18,11 @@ public class Main {
         leetcodeDebugging();
 
         // Design Patterns
-        mementoExample();
-        stateExample();
-        singletonExample();
-        observerExample();
+//        mementoExample();
+//        stateExample();
+//        singletonExample();
+//        observerExample();
+        builderExample();
 
         // Architectural Patterns
         mvcExample();
@@ -93,5 +96,15 @@ public class Main {
         penguinz0.subscribe(s3);
 
         penguinz0.upload("How to code");
+    }
+
+    public static void builderExample() {
+        UserBuilder userBuilder = new UserBuilder("Matthew", "Ouyang")
+                .age(20)
+                .phone("123456")
+                .address("Auckland New Zealand");
+
+        User user = userBuilder.build();
+        System.out.println(user.toString());
     }
 }
