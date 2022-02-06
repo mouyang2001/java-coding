@@ -1,4 +1,4 @@
-package code.patterns.design.mvc;
+package code.patterns.architectural.mvc;
 
 public class StudentView {
     public void printStudentDetails(String studentName, String studentRollNo){

@@ -1,4 +1,4 @@
-package code.patterns.design.mvc;
+package code.patterns.architectural.mvc;
 
 public class StudentController {
     private Student model;

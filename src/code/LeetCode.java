@@ -329,4 +329,20 @@ public class LeetCode {
 
         return i;
     }
+
+    public static long repeatedString(String s, long n) {
+        // Write your code here
+        long aCount = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'a') aCount++;
+        }
+
+        aCount = aCount * (n / s.length());
+
+        for (int i = 0; i < n % s.length(); i++) {
+            if (s.charAt(i) == 'a') aCount++;
+        }
+
+        return aCount;
+    }
 }

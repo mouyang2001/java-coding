@@ -1,4 +1,4 @@
-package code.patterns.architectural.state;
+package code.patterns.design.behavioral.state;
 
 public interface Tool {
     void mouseDown();

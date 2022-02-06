@@ -1,15 +1,15 @@
 package code;
 
-import code.patterns.architectural.memento.Editor;
-import code.patterns.architectural.memento.History;
-import code.patterns.architectural.observer.Channel;
-import code.patterns.architectural.observer.Subscriber;
-import code.patterns.architectural.singleton.Singleton;
-import code.patterns.architectural.state.Canvas;
-import code.patterns.architectural.state.SelectionTool;
-import code.patterns.design.mvc.Student;
-import code.patterns.design.mvc.StudentController;
-import code.patterns.design.mvc.StudentView;
+import code.patterns.design.behavioral.memento.Editor;
+import code.patterns.design.behavioral.memento.History;
+import code.patterns.design.behavioral.observer.Channel;
+import code.patterns.design.behavioral.observer.Subscriber;
+import code.patterns.design.creational.singleton.Singleton;
+import code.patterns.design.behavioral.state.Canvas;
+import code.patterns.design.behavioral.state.SelectionTool;
+import code.patterns.architectural.mvc.Student;
+import code.patterns.architectural.mvc.StudentController;
+import code.patterns.architectural.mvc.StudentView;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class Main {
 
     public static void leetcodeDebugging() {
         int[] nums = {1,1};
-        System.out.println(LeetCode.removeDuplicates(nums));
+        System.out.println(LeetCode.repeatedString("aba", 10));
     }
 
     public static void mementoExample() {

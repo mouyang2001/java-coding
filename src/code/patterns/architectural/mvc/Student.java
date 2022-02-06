@@ -1,4 +1,4 @@
-package code.patterns.design.mvc;
+package code.patterns.architectural.mvc;
 
 /**
  * Model class, this can be used to handle logic and interactions with databases.

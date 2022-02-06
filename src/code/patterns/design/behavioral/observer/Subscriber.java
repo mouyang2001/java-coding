@@ -1,4 +1,4 @@
-package code.patterns.architectural.observer;
+package code.patterns.design.behavioral.observer;
 
 public class Subscriber {
     private final String name;
