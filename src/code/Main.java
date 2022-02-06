@@ -2,6 +2,8 @@ package code;
 
 import code.patterns.architectural.memento.Editor;
 import code.patterns.architectural.memento.History;
+import code.patterns.architectural.observer.Channel;
+import code.patterns.architectural.observer.Subscriber;
 import code.patterns.architectural.singleton.Singleton;
 import code.patterns.architectural.state.Canvas;
 import code.patterns.architectural.state.SelectionTool;
@@ -17,6 +19,7 @@ public class Main {
         mementoExample();
         stateExample();
         singletonExample();
+        observerExample();
 
         // Architectural Patterns
         mvcExample();
@@ -72,5 +75,23 @@ public class Main {
         student.setName("Matthew");
         student.setRollNo("13PR");
         return student;
+    }
+
+    public static void observerExample() {
+        Channel penguinz0 = new Channel();
+
+        Subscriber s1 = new Subscriber("Matthew");
+        Subscriber s2 = new Subscriber("Eve");
+        Subscriber s3 = new Subscriber("Elon");
+
+        s1.subscribeToChannel(penguinz0);
+        s2.subscribeToChannel(penguinz0);
+        s3.subscribeToChannel(penguinz0);
+
+        penguinz0.subscribe(s1);
+        penguinz0.subscribe(s2);
+        penguinz0.subscribe(s3);
+
+        penguinz0.upload("How to code");
     }
 }
