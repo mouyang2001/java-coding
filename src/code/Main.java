@@ -26,8 +26,8 @@ public class Main {
     }
 
     public static void leetcodeDebugging() {
-        int[] nums = {1,5,6,2,3,7,2,8};
-        System.out.println(LeetCode.binarySearch(nums, 2));
+        int[] nums = {1,1};
+        System.out.println(LeetCode.removeDuplicates(nums));
     }
 
     public static void mementoExample() {

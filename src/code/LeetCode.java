@@ -1,6 +1,5 @@
 package code;
 
-import java.sql.Array;
 import java.util.*;
 
 public class LeetCode {
@@ -144,8 +143,8 @@ public class LeetCode {
 
     /**
      * Find anagrams solution using hashmaps, slowest.
-     * @param s
-     * @param p
+     * @param s string of letters
+     * @param p pattern for anagrams
      * @return
      */
     public static List<Integer> findAnagrams(String s, String p) {
@@ -302,8 +301,8 @@ public class LeetCode {
     /**
      * Find the smallest value index in sorted array using binary search.
      * This is assuming sorted array is scrambled.
-     * @param nums
-     * @return
+     * @param nums nums integer array
+     * @return smallest integer
      */
     public static int findSmallestIndexBinary(int[] nums) {
         int l = 0;
@@ -316,5 +315,18 @@ public class LeetCode {
         }
 
         return l;
+    }
+
+    public static int removeDuplicates(int[] nums) {
+        var n = nums.length;
+        if (n < 3)
+            return n;
+
+        var i = 2;
+        for (var j = i; j < n; j++)
+            if (nums[j] != nums[i - 2])
+                nums[i++] = nums[j];
+
+        return i;
     }
 }
