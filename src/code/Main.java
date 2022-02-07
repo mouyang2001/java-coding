@@ -12,6 +12,10 @@ import code.patterns.design.behavioral.state.SelectionTool;
 import code.patterns.architectural.mvc.Student;
 import code.patterns.architectural.mvc.StudentController;
 import code.patterns.architectural.mvc.StudentView;
+import code.patterns.design.structural.adapter.RoundHole;
+import code.patterns.design.structural.adapter.RoundPeg;
+import code.patterns.design.structural.adapter.SquarePeg;
+import code.patterns.design.structural.adapter.SquarePegAdapter;
 import code.patterns.design.structural.bridge.*;
 
 public class Main {
@@ -20,12 +24,19 @@ public class Main {
 
         // Design Patterns
 //        mementoExample();
+
 //        stateExample();
+
 //        singletonExample();
+
 //        observerExample();
+
 //        builderExample();
-        bridgeExample(new TV());
-        bridgeExample(new Radio());
+
+//        bridgeExample(new TV());
+//        bridgeExample(new Radio());
+
+        adapterExample();
 
         // Architectural Patterns
         mvcExample();
@@ -122,5 +133,16 @@ public class Main {
         advancedRemote.power();
         advancedRemote.mute();
         device.printStatus();
+    }
+
+    public static void adapterExample() {
+        RoundHole hole = new RoundHole(5);
+        RoundPeg roundPeg = new RoundPeg(5);
+        if (hole.fits(roundPeg)) System.out.println("Round peg r5 fits round hole r5");
+
+        SquarePeg squarePeg = new SquarePeg(2);
+        SquarePegAdapter squarePegAdapter = new SquarePegAdapter(squarePeg);
+        // The reason why squarePegAdapter is allowed. Because it's an aggregate / extension of round peg.
+        if (hole.fits(squarePegAdapter)) System.out.println("Square peg w2 fits round hole r5");
     }
 }
