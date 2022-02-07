@@ -13,7 +13,7 @@ public class UserBuilder {
     }
     public UserBuilder age(int age) {
         this.age = age;
-        return this;
+        return this; // The reason why we return this, is that is enables us to chain it.
     }
     public UserBuilder phone(String phone) {
         this.phone = phone;

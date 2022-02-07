@@ -12,6 +12,7 @@ import code.patterns.design.behavioral.state.SelectionTool;
 import code.patterns.architectural.mvc.Student;
 import code.patterns.architectural.mvc.StudentController;
 import code.patterns.architectural.mvc.StudentView;
+import code.patterns.design.structural.bridge.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +23,9 @@ public class Main {
 //        stateExample();
 //        singletonExample();
 //        observerExample();
-        builderExample();
+//        builderExample();
+        bridgeExample(new TV());
+        bridgeExample(new Radio());
 
         // Architectural Patterns
         mvcExample();
@@ -106,5 +109,18 @@ public class Main {
 
         User user = userBuilder.build();
         System.out.println(user.toString());
+    }
+
+    public static void bridgeExample(Device device) {
+        System.out.println("Tests with basic remote.");
+        BasicRemote basicRemote = new BasicRemote(device);
+        basicRemote.power();
+        device.printStatus();
+
+        System.out.println("Tests with advanced remote.");
+        AdvancedRemote advancedRemote = new AdvancedRemote(device);
+        advancedRemote.power();
+        advancedRemote.mute();
+        device.printStatus();
     }
 }
