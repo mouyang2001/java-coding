@@ -44,7 +44,9 @@ public class Main {
 
     public static void leetcodeDebugging() {
         int[] nums = {1,1};
-        System.out.println(LeetCode.repeatedString("aba", 10));
+        String s = "abcd";
+        String t = "abcde";
+        System.out.println(LeetCode.findTheDifference(s, t));
     }
 
     public static void mementoExample() {

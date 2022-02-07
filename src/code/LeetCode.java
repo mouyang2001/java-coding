@@ -345,4 +345,24 @@ public class LeetCode {
 
         return aCount;
     }
+
+    public static char findTheDifference(String s, String t) {
+        if (s.length() == 0) return t.charAt(0);
+
+        int[] map1 = new int[26];
+        int[] map2 = new int[26];
+
+        for (char c : s.toCharArray()) {
+            map1[c - 'a']++;
+        }
+
+        for (char c : t.toCharArray()) {
+            map2[c-'a']++;
+            if (map2[c-'a'] > map1[c - 'a']) {
+                return c;
+            }
+        }
+
+        return 'a';
+    }
 }
