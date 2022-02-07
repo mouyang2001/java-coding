@@ -43,10 +43,8 @@ public class Main {
     }
 
     public static void leetcodeDebugging() {
-        int[] nums = {1,1};
-        String s = "abcd";
-        String t = "abcde";
-        System.out.println(LeetCode.findTheDifference(s, t));
+        int[] nums = {4, 3, 1, 2};
+        System.out.println(LeetCode.minimumSwaps(nums));
     }
 
     public static void mementoExample() {

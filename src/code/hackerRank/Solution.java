@@ -15,28 +15,23 @@ import static java.util.stream.Collectors.toList;
 class Result {
 
     /*
-     * Complete the 'repeatedString' function below.
+     * Complete the 'rotLeft' function below.
      *
-     * The function is expected to return a LONG_INTEGER.
+     * The function is expected to return an INTEGER_ARRAY.
      * The function accepts following parameters:
-     *  1. STRING s
-     *  2. LONG_INTEGER n
+     *  1. INTEGER_ARRAY a
+     *  2. INTEGER d
      */
 
-    public static long repeatedString(String s, long n) {
+    public static List<Integer> rotLeft(List<Integer> a, int d) {
         // Write your code here
-        long aCount = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == 'a') aCount++;
+        List<Integer> res = new ArrayList<Integer>();
+        for (int i = 0; i < a.size(); i++) {
+            int j = Math.abs(i-d) % a.size();
+            res.set(j, a.get(i));
         }
 
-        aCount = aCount * (n / s.length());
-
-        for (int i = 0; i < n % s.length(); i++) {
-            if (s.charAt(i) == 'a') aCount++;
-        }
-
-        return aCount;
+        return res;
     }
 
 }
@@ -46,18 +41,30 @@ public class Solution {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        String s = bufferedReader.readLine();
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
-        long n = Long.parseLong(bufferedReader.readLine().trim());
+        int n = Integer.parseInt(firstMultipleInput[0]);
 
-        long result = Result.repeatedString(s, n);
+        int d = Integer.parseInt(firstMultipleInput[1]);
 
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
+        List<Integer> a = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+                .map(Integer::parseInt)
+                .collect(toList());
+
+        List<Integer> result = Result.rotLeft(a, d);
+
+        bufferedWriter.write(
+                result.stream()
+                        .map(Object::toString)
+                        .collect(joining(" "))
+                        + "\n"
+        );
 
         bufferedReader.close();
         bufferedWriter.close();
     }
 }
+
+
 
 
