@@ -1,5 +1,6 @@
 package code;
 
+import code.patterns.design.behavioral.chainOfResponsibility.*;
 import code.patterns.design.behavioral.memento.Editor;
 import code.patterns.design.behavioral.memento.History;
 import code.patterns.design.behavioral.observer.Channel;
@@ -144,5 +145,20 @@ public class Main {
         SquarePegAdapter squarePegAdapter = new SquarePegAdapter(squarePeg);
         // The reason why squarePegAdapter is allowed. Because it's an aggregate / extension of round peg.
         if (hole.fits(squarePegAdapter)) System.out.println("Square peg w2 fits round hole r5");
+    }
+
+    public static void chainOfResponsibility() {
+        Chain operation1 = new AddNumbers();
+        Chain operation2 = new SubtractNumbers();
+        Chain operation3 = new MultiplyNumbers();
+        Chain operation4 = new DivideNumbers();
+
+        operation1.setNextChain(operation2);
+        operation2.setNextChain(operation3);
+        operation3.setNextChain(operation4);
+
+        Numbers request = new Numbers(4, 2, "div");
+        // Because "div" is not operation1 it will pass it down the chain until one of the operation chains can process it.
+        operation1.calculate(request);
     }
 }
