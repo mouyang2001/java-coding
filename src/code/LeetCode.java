@@ -383,4 +383,31 @@ public class LeetCode {
         arr[j] = temp;
     }
 
+    public static int trap(int[] height) {
+        int l = 0;
+        int r = height.length-1;
+
+        int maxL = height[l];
+        int maxR = height[r];
+
+        int total = 0;
+
+        while (l < r) {
+            int water = 0;
+            if (maxL <= maxR) {
+                l++;
+                maxL = Math.max(maxL, height[l]);
+                water = Math.min(maxL, maxR) - height[l];
+            }  else {
+                r--;
+                maxR = Math.max(maxR, height[r]);
+                water = Math.min(maxL, maxR) - height[r];
+            }
+
+            if (water > 0) total += water;
+        }
+
+        return total;
+    }
+
 }

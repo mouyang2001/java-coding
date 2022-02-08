@@ -43,8 +43,8 @@ public class Main {
     }
 
     public static void leetcodeDebugging() {
-        int[] nums = {4, 3, 1, 2};
-        System.out.println(LeetCode.minimumSwaps(nums));
+        int[] nums = {0,1,0,2,1,0,1,3,2,1,2,1};
+        System.out.println(LeetCode.trap(nums));
     }
 
     public static void mementoExample() {
