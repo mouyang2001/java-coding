@@ -7,6 +7,9 @@ import code.patterns.design.behavioral.observer.Channel;
 import code.patterns.design.behavioral.observer.Subscriber;
 import code.patterns.design.creational.builder.User;
 import code.patterns.design.creational.builder.UserBuilder;
+import code.patterns.design.creational.factory.Dialog;
+import code.patterns.design.creational.factory.HtmlDialog;
+import code.patterns.design.creational.factory.WindowsDialog;
 import code.patterns.design.creational.singleton.Singleton;
 import code.patterns.design.behavioral.state.Canvas;
 import code.patterns.design.behavioral.state.SelectionTool;
@@ -37,7 +40,9 @@ public class Main {
 //        bridgeExample(new TV());
 //        bridgeExample(new Radio());
 
-        adapterExample();
+//        adapterExample();
+
+         factoryExample();
 
         // Architectural Patterns
         mvcExample();
@@ -160,5 +165,16 @@ public class Main {
         Numbers request = new Numbers(4, 2, "div");
         // Because "div" is not operation1 it will pass it down the chain until one of the operation chains can process it.
         operation1.calculate(request);
+    }
+
+    public static void factoryExample() {
+        Dialog dialog;
+        if (System.getProperty("os.name").equals("Windows 10")) {
+            dialog = new WindowsDialog();
+        } else {
+            dialog = new HtmlDialog();
+        }
+
+        dialog.renderWindow();
     }
 }
