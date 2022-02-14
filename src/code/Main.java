@@ -22,6 +22,8 @@ import code.patterns.design.structural.adapter.SquarePeg;
 import code.patterns.design.structural.adapter.SquarePegAdapter;
 import code.patterns.design.structural.bridge.*;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         leetcodeDebugging();
@@ -42,15 +44,21 @@ public class Main {
 
 //        adapterExample();
 
-         factoryExample();
+//         factoryExample();
 
         // Architectural Patterns
-        mvcExample();
+//        mvcExample();
     }
 
     public static void leetcodeDebugging() {
-        int[] nums = {0,1,0,2,1,0,1,3,2,1,2,1};
-        System.out.println(LeetCode.trap(nums));
+        char[][] sea = {
+                {'1','1','1','1','0'},
+                {'1','1','0','1','0'},
+                {'1','1','0','0','0'},
+                {'0','0','0','0','0'}
+            };
+
+        System.out.println(LeetCode.numIslands(sea));
     }
 
     public static void mementoExample() {

@@ -410,4 +410,28 @@ public class LeetCode {
         return total;
     }
 
+    public static int numIslands(char[][] grid) {
+        int islandCount = 0;
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[0].length; c++) {
+                if (grid[r][c] == '1') {
+                    exploreIsland(grid, r, c);
+                    islandCount++;
+                }
+            }
+        }
+
+        return islandCount;
+    }
+
+    public static void exploreIsland(char[][] grid, int i, int j) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[i].length || grid[i][j] == '0') return;
+        System.out.println(Arrays.deepToString(grid));
+        grid[i][j] = '0';
+        exploreIsland(grid, i+1, j);
+        exploreIsland(grid, i-1, j);
+        exploreIsland(grid, i, j+1);
+        exploreIsland(grid, i, j-1);
+    }
+
 }
