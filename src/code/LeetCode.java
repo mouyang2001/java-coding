@@ -434,4 +434,29 @@ public class LeetCode {
         exploreIsland(grid, i, j-1);
     }
 
+    public static void quickSort(int[] nums, int low, int high) {
+        if (low < high) {
+            int partition = partition(nums, low, high);
+            quickSort(nums, low, partition - 1);
+            quickSort(nums, partition + 1, high);
+        }
+    }
+
+    // partition return index of pivot
+    // But also sorts sub arrays left and right of the pivot.
+    static int partition(int[] array, int low, int high) {
+        int pivot = array[high]; // or random or median of three
+
+        int i = (low - 1);
+        for (int j = low; j < high; j++) {
+            if (array[j] < pivot) {
+                i++;
+                swap(array, i, j);
+            }
+        }
+
+        swap(array, i + 1, high);
+        return (i + 1);
+    }
+
 }
