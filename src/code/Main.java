@@ -58,11 +58,8 @@ public class Main {
                 {'0','0','0','0','0'}
             };
 
-        int[] nums = {1,5,7,2,8,4,8,4,5,1};
-        System.out.println(LeetCode.numIslands(sea));
-
-        LeetCode.quickSort(nums, 0, nums.length-1);
-        System.out.println(Arrays.toString(nums));
+        int[] nums = {1,1,1,2,2,3};
+        System.out.println(LeetCode.maximumStockLeft(nums, 2));
     }
 
     public static void mementoExample() {

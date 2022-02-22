@@ -459,4 +459,70 @@ public class LeetCode {
         return (i + 1);
     }
 
+    /**
+     * Approach: put down the max number up to or current number + number two places before it.
+     * @param arr
+     * @return
+     */
+    static int maxSubsetSum(int[] arr) {
+        if (arr.length == 1) return arr[0];
+
+        int max = Math.max(arr[0], arr[1]);
+        arr[1] = max;
+
+        for (int i = 2; i < arr.length; i++) {
+            max = Math.max(max, arr[i-2] + arr[i]);
+            max = Math.max(max, arr[i]);
+            arr[i] = max;
+        }
+
+        return max;
+    }
+
+    static int goodNumbers(int[] numbers) {
+        Arrays.sort(numbers);
+
+        // default all individual values are counted
+        int ans = numbers.length;
+
+        // Sliding window
+        for (int l = 0; l < numbers.length-1; l++) {
+
+            // if next value is the same one ignore it
+            if (numbers[l] == numbers[l+1]) continue;
+
+
+            int r = l;
+            // Move r pointer each time the next value is the same or greater by 1.
+            while (r < numbers.length - 1 && (numbers[r + 1] == numbers[r] + 1 || numbers[r+1] == numbers[r])) {
+                ans++;
+                r++;
+            }
+        }
+
+        return ans;
+    }
+
+    static int maximumStockLeft(int[] arr, int m) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        // Count up frequencies of unique values.
+        // Add to priority queue.
+        for (int n: arr) map.put(n, map.getOrDefault(n, 0) + 1);
+        for (Map.Entry<Integer, Integer> pair : map.entrySet()) queue.add(pair.getValue());
+
+        System.out.println(queue);
+
+        while (m > 0) {
+            if (m >= queue.peek()) {
+                m -= queue.poll();
+            } else {
+                break;
+            }
+        }
+
+        return queue.size();
+    }
+
 }
