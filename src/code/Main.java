@@ -1,10 +1,5 @@
 package code;
 
-import code.patterns.design.behavioral.chainOfResponsibility.*;
-import code.patterns.design.creational.factory.Dialog;
-import code.patterns.design.creational.factory.HtmlDialog;
-import code.patterns.design.creational.factory.WindowsDialog;
-
 public class Main {
     public static void main(String[] args) {
         leetcodeDebugging();
