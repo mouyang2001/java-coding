@@ -33,9 +33,10 @@ public class CommonProblems {
     /**
      * Find first and last index of element in array.
      * Solutions: linear search or binary search.
-     * Time: O(log(n)) Space: O(1)
-     * @param arr
-     * @return
+     * Time: O(log(n)) Space: O(1).
+     * @param arr integer array.
+     * @param target target value.
+     * @return [-1,-1] if nothing else the first and last indexes.
      */
     public static int[] findFirstAndLastIndex(int[] arr, int target) {
         return new int[] {findFirstIndex(arr, target), findLastIndex(arr, target)};
