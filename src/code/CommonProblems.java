@@ -1,8 +1,6 @@
 package code;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class CommonProblems {
     /**
@@ -74,5 +72,24 @@ public class CommonProblems {
         }
 
         return ans;
+    }
+
+    /**
+     * Find the kth largest element.
+     * Solutions: sort then iterate backwards k times or heaps
+     * @param arr integer array of numbers.
+     * @param k the nth largest element.
+     * @return the kth largest element in target array.
+     */
+    public static int kLargestElement(int[] arr,  int k) {
+        PriorityQueue<Integer> heap = new PriorityQueue<>(Comparator.reverseOrder());
+
+        // nlog(n) slow because we need to heapify log(n) everytime, n times.
+        // However, it could be O(n) if we heapify straight away.
+        for (int n : arr) heap.add(n);
+
+        for (int i = 0; i < k-1; i++) heap.remove(); // klog(n);
+
+        return heap.remove();
     }
 }

@@ -36,5 +36,8 @@ public class Main {
         int[] nums = {1,1,2,2,2,3,3};
         int[] firstAndLastIndex = CommonProblems.findFirstAndLastIndex(nums, 2);
         System.out.println(Arrays.toString(firstAndLastIndex));
+
+        // Find k largest element.
+        System.out.println(CommonProblems.kLargestElement(new int[]{3,2,1,5,6,4}, 2));
     }
 }
