@@ -1,8 +1,10 @@
 package code;
 
+import java.util.HashMap;
+
 public class Main {
     public static void main(String[] args) {
-        leetcodeDebugging();
+//        leetcodeDebugging();
         commonProblems();
     }
 
@@ -19,6 +21,14 @@ public class Main {
     }
 
     public static void commonProblems() {
+        System.out.println(CommonProblems.isAnagram("hello", "elolh"));
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(1, 1);
+        map.put(2, 2);
+        map.put(3, 3);
+        CommonProblems.loopThroughHashMap(map);
+
 
     }
 }
