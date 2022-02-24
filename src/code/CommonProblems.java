@@ -92,4 +92,44 @@ public class CommonProblems {
 
         return heap.remove();
     }
+
+    /**
+     * Check if string is valid parentheses containing '('.
+     * Time: O(n) Space: O(n).
+     * @param combination String combination of '(' and ')'.
+     * @return boolean is valid parentheses.
+     */
+    public static boolean isValidParentheses(String combination) {
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : combination.toCharArray()) {
+            if (c == '(') {
+                stack.push(c);
+            } else {
+                // Check if empty before popping
+                if (stack.size() == 0) return false;
+                stack.pop();
+            }
+        }
+
+        return stack.isEmpty();
+    }
+
+    public static List<String> generateParentheses(int pairs) {
+        List<String> combinations = new ArrayList<>();
+        recursive(pairs, 0, 0, combinations, "");
+        return combinations;
+    }
+
+    private static void recursive(int limit, int open, int close, List<String> combinations, String combo) {
+        if (open > limit || close > limit || close > open) return;
+
+        if (open == limit && close == limit) {
+            combinations.add(combo);
+            return;
+        }
+
+        recursive(limit, open+1, close, combinations, combo+"(");
+        recursive(limit, open, close+1, combinations, combo+")");
+    }
 }

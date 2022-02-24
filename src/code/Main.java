@@ -39,5 +39,11 @@ public class Main {
 
         // Find k largest element.
         System.out.println(CommonProblems.kLargestElement(new int[]{3,2,1,5,6,4}, 2));
+
+        // Is valid parentheses.
+        System.out.println(CommonProblems.isValidParentheses("(()()(()))"));
+
+        // generate all valid parentheses.
+        System.out.println(CommonProblems.generateParentheses(3));
     }
 }
