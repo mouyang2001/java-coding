@@ -132,4 +132,148 @@ public class CommonProblems {
         recursive(limit, open+1, close, combinations, combo+"(");
         recursive(limit, open, close+1, combinations, combo+")");
     }
+
+    /**
+     * Find index that can complete circuit.
+     * Solution: Greedy approach
+     * Time: O(n) Space: O(1)
+     * @param gas integer array of gas added each time.
+     * @param cost integer array of gas cost deducted each time.
+     * @return -1 if impossible, else index of circuit start.
+     */
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        int gasSum = 0;
+        int costSum = 0;
+
+        int total = 0;
+        int start = 0;
+        for (int i = 0; i < gas.length; i++) {
+
+            gasSum += gas[i];
+            costSum += cost[i];
+
+            total += gas[i] - cost[i];
+            if (total < 0) {
+                total = 0;
+                start = i + 1;
+            }
+        }
+
+        return (gasSum < costSum) ? -1 : start;
+    }
+
+    // Simple binary search insert position.
+    public static int binarySearchInsert(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return left;
+    }
+
+    public static int binarySearch(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) >> 1;
+            if (nums[mid] > target) {
+                right = right - 1;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+
+        return -1;
+    }
+
+    /**
+     * Common function to generate array of factorials. Where the index associates with its factorial.
+     * Solution: dynamic programming problem using tabulation.
+     * Time: O(n) Space: O(n).
+     * @param n the nth position we want factorials up to.
+     * @return array of factorials up to specified nth number.
+     */
+    public static int[] generateFactorials(int n) {
+        int[] f = new int[n+1];
+
+        f[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            f[i] = f[i-1] * i;
+        }
+
+        return f;
+    }
+
+    /**
+     * Rotate using extra memory.
+     * Space: O(n).
+     * @param nums integer array
+     * @param k rotate k times
+     * @return rotated array.
+     */
+    public static int[] rotateArray(int[] nums, int k) {
+        if (k == nums.length) return nums;
+
+        int[] res = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            int index = (i+k) % nums.length;
+            res[index] = nums[i];
+        }
+
+        return res;
+    }
+
+    /**
+     * Rotate in place.
+     * Space: O(1).
+     * @param nums integer array.
+     * @param k rotate by k.
+     */
+    public static void rotateArrayInPlace(int[] nums, int k) {
+        k = k % nums.length;
+
+        reverseFromTo(nums, 0, nums.length-1);
+        reverseFromTo(nums, 0, k-1);
+        reverseFromTo(nums, k, nums.length-1);
+    }
+
+    private static void reverseFromTo(int[] nums, int left, int right) {
+        while (left < right) {
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+
+            left++;
+            right--;
+        }
+    }
+
+    /**
+     * Reverse array in place.
+     * @param nums integer array list.
+     */
+    public static void reverseArray(int[] nums) {
+        int left = 0;
+        int right = nums.length-1;
+
+        while (left < right) {
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+
+            left++;
+            right--;
+        }
+    }
 }

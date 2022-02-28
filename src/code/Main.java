@@ -45,5 +45,11 @@ public class Main {
 
         // generate all valid parentheses.
         System.out.println(CommonProblems.generateParentheses(3));
+
+        System.out.println(CommonProblems.binarySearchInsert(new int[] {1,3,5,6}, 5));
+
+        System.out.println(Arrays.toString(CommonProblems.generateFactorials(5)));
+
+        System.out.println(Arrays.toString(CommonProblems.rotateArray(new int[]{1, 2, 3, 4, 5, 6, 7,}, 8)));
     }
 }
