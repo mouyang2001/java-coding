@@ -276,4 +276,18 @@ public class CommonProblems {
             right--;
         }
     }
+
+    public static int[] targetSeparation(int[] nums, int target) {
+        int index = 0;
+
+        // All non-target values move to the front.
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != target) nums[index++] = nums[i];
+        }
+
+        // Replace last remaining values with target.
+        for (int i = index; i < nums.length; i++) nums[i] = target;
+
+        return nums;
+    }
 }
