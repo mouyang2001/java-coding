@@ -290,4 +290,48 @@ public class CommonProblems {
 
         return nums;
     }
+
+    public static int getMaxSubstrings(String s, int k) {
+        // Write your code here
+        // Two types of palindromes
+        // abba and aba
+
+        HashSet<Integer> set = new HashSet<>();
+
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int l = i;
+            int r = i;
+            int size = 1;
+
+            while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+                if (size >= k) {
+                    count++;
+                    break;
+                }
+                size += 2;
+                l--;
+                r++;
+            }
+
+            l = i;
+            r = i+1;
+            size = 2;
+            while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+                size += 2;
+                l--;
+                r++;
+                if (size >= k) {
+                    count++;
+                    break;
+                }
+
+            }
+
+        }
+
+        System.out.println(set);
+
+        return count;
+    }
 }

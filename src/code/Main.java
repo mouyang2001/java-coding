@@ -53,5 +53,10 @@ public class Main {
         System.out.println(Arrays.toString(CommonProblems.rotateArray(new int[]{1, 2, 3, 4, 5, 6, 7,}, 8)));
 
         System.out.println(Arrays.toString(CommonProblems.targetSeparation(new int[] {0,1,0,3,12}, 0)));
+
+        Integer test = 10;
+        System.out.println(test);
+
+        System.out.println(CommonProblems.getMaxSubstrings("aababaabce", 3));
     }
 }
