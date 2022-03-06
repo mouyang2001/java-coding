@@ -334,4 +334,22 @@ public class CommonProblems {
 
         return count;
     }
+
+    public static String rotationalCipher(String input, int rotationFactor) {
+        char[] arr = input.toCharArray();
+
+        for (int i = 0; i < arr.length; i++) {
+            char c = arr[i];
+
+            if (c >= '0' && c <= '9') {
+                arr[i] = (char)('0' + (c - '0' + rotationFactor) % 10);
+            } else if (c >= 'A' && c <= 'Z') {
+                arr[i] = (char)('A' + (c - 'A' + rotationFactor) % 26);
+            } else if (c >= 'a' && c <= 'z') {
+                arr[i] = (char)('a' + (c - 'a' + rotationFactor) % 26);
+            }
+        }
+
+        return new String(arr);
+    }
 }

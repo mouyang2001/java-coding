@@ -58,5 +58,7 @@ public class Main {
         System.out.println(test);
 
         System.out.println(CommonProblems.getMaxSubstrings("aababaabce", 3));
+
+        System.out.println(CommonProblems.rotationalCipher("Zebra-493?", 3));
     }
 }
