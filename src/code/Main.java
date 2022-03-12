@@ -60,5 +60,10 @@ public class Main {
         System.out.println(CommonProblems.getMaxSubstrings("aababaabce", 3));
 
         System.out.println(CommonProblems.rotationalCipher("Zebra-493?", 3));
+
+        System.out.println(CommonProblems.searchMatrix(new int[][] {{1,3,5,7},{10,11,16,20},{23,30,34,60}}, 23));
+
+        CommonProblems.splitDigits(12345, 10);
+        CommonProblems.splitDigits(11, 2);
     }
 }

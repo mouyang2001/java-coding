@@ -352,4 +352,52 @@ public class CommonProblems {
 
         return new String(arr);
     }
+
+    public static boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int low = 0;
+        int high = m-1;
+        int index = 0;
+        while(low <= high){
+            int mid = low + (high-low)/2;
+            if(matrix[mid][0] < target){
+                index = mid;
+                low = mid+1;
+            } else if(matrix[mid][0] > target){
+                high = mid-1;
+            } else {
+                return true;
+            }
+        }
+
+        low = 0;
+        high = n-1;
+        while(low <= high){
+            int mid = low + (high-low)/2;
+            if(matrix[index][mid] < target){
+                low = mid+1;
+            } else if(matrix[index][mid] > target){
+                high = mid-1;
+            } else {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Good skill to have is to split numbers into digits.
+     * All you need is to specify the base you want to split a number into.
+     * @param n the integer number.
+     * @param base the base of the number.
+     */
+    public static void splitDigits(int n, int base) {
+        while (n != 0) {
+            System.out.println(n % base);
+            n = n / base;
+        }
+    }
 }
