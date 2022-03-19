@@ -1,12 +1,16 @@
 package code;
 
+import code.design.FileSystem;
+
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
 //        leetcodeDebugging();
-        commonProblems();
+//        commonProblems();
+        designProblems();
     }
 
     public static void leetcodeDebugging() {
@@ -65,5 +69,14 @@ public class Main {
 
         CommonProblems.splitDigits(12345, 10);
         CommonProblems.splitDigits(11, 2);
+    }
+
+    public static void designProblems() {
+        FileSystem fileSystem = new FileSystem();
+
+        fileSystem.mkdir("/apps/src");
+        fileSystem.addContentToFile("/apps/main.java", "System.out.println('Hello world');");
+        System.out.println(fileSystem.ls("/apps"));
+        System.out.println(fileSystem.readContentFromFile("/apps"));
     }
 }
