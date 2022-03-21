@@ -1,6 +1,7 @@
 package code;
 
 import code.design.FileSystem;
+import test.LeetCodeTest;
 
 import java.io.File;
 import java.util.Arrays;
@@ -8,9 +9,9 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
-//        leetcodeDebugging();
+        leetcodeDebugging();
 //        commonProblems();
-        designProblems();
+//        designProblems();
     }
 
     public static void leetcodeDebugging() {
@@ -22,7 +23,7 @@ public class Main {
             };
 
         int[] nums = {1,1,1,2,2,3};
-        System.out.println(LeetCode.maximumStockLeft(nums, 2));
+        System.out.println(LeetCode.partitionLabels("ababcbacadefegdehijhklij"));
     }
 
     public static void commonProblems() {
