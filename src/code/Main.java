@@ -24,6 +24,7 @@ public class Main {
 
         int[] nums = {1,1,1,2,2,3};
         System.out.println(LeetCode.partitionLabels("ababcbacadefegdehijhklij"));
+        System.out.println(LeetCode.getSmallestString(4, 100));
     }
 
     public static void commonProblems() {

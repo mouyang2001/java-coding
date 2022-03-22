@@ -547,4 +547,27 @@ public class LeetCode {
         return res;
     }
 
+    public static String getSmallestString(int n, int k) {
+        char[] res = new char[n];
+        Arrays.fill(res, 'a');
+
+        int sum = n;
+        for (int i = n-1; i >=0; i--) {
+            System.out.println(new String(res));
+            if (sum == k) return new String(res);
+
+            int val = (int) res[i] - 96;
+            int shouldBe = k - sum + val;
+            if (shouldBe >= 26) {
+                res[i] = 'z';
+                sum = sum - val + 26;
+            } else {
+                res[i] = (char) (96 + shouldBe);
+                sum = sum - val + shouldBe;
+            }
+        }
+
+        return new String(res);
+    }
+
 }
