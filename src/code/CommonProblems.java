@@ -400,4 +400,32 @@ public class CommonProblems {
             n = n / base;
         }
     }
+
+    public static class MyClass {
+        public int val;
+        public MyClass(int val) {
+            this.val = val;
+        }
+    }
+
+    /**
+     * Common for object in priority queues we need to create a comparator class instance.
+     * To feed as a parameter into the priority queue instantiation.
+     */
+    public static class MyComparator implements Comparator<MyClass> {
+        public int compare(MyClass c1, MyClass c2) {
+            return Integer.compare(c2.val, c1.val);
+        }
+    }
+
+    public static void priorityQueueComparator() {
+        PriorityQueue<MyClass> pq = new PriorityQueue<>(new MyComparator());
+        pq.add(new MyClass(10));
+        pq.add(new MyClass(20));
+        pq.add(new MyClass(12));
+        pq.add(new MyClass(100));
+
+        System.out.println(pq.poll().val);
+        System.out.println(pq.poll().val);
+    }
 }

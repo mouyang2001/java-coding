@@ -9,8 +9,8 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
-        leetcodeDebugging();
-//        commonProblems();
+//        leetcodeDebugging();
+        commonProblems();
 //        designProblems();
     }
 
@@ -71,6 +71,8 @@ public class Main {
 
         CommonProblems.splitDigits(12345, 10);
         CommonProblems.splitDigits(11, 2);
+
+        CommonProblems.priorityQueueComparator();
     }
 
     public static void designProblems() {
