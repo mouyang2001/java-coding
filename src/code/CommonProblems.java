@@ -401,6 +401,10 @@ public class CommonProblems {
         }
     }
 
+    /**
+     * Common for object in priority queues we need to create a comparator class instance.
+     * To feed as a parameter into the priority queue instantiation.
+     */
     public static class MyClass {
         public int val;
         public MyClass(int val) {
@@ -408,10 +412,6 @@ public class CommonProblems {
         }
     }
 
-    /**
-     * Common for object in priority queues we need to create a comparator class instance.
-     * To feed as a parameter into the priority queue instantiation.
-     */
     public static class MyComparator implements Comparator<MyClass> {
         public int compare(MyClass c1, MyClass c2) {
             return Integer.compare(c2.val, c1.val);
@@ -425,7 +425,7 @@ public class CommonProblems {
         pq.add(new MyClass(12));
         pq.add(new MyClass(100));
 
-        System.out.println(pq.poll().val);
-        System.out.println(pq.poll().val);
+        System.out.println(Objects.requireNonNull(pq.poll()).val);
+        System.out.println(Objects.requireNonNull(pq.poll()).val);
     }
 }
