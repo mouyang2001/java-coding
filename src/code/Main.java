@@ -9,8 +9,8 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
-//        leetcodeDebugging();
-        commonProblems();
+        leetcodeDebugging();
+//        commonProblems();
 //        designProblems();
     }
 
@@ -25,6 +25,16 @@ public class Main {
         int[] nums = {1,1,1,2,2,3};
         System.out.println(LeetCode.partitionLabels("ababcbacadefegdehijhklij"));
         System.out.println(LeetCode.getSmallestString(4, 100));
+
+        int[][] grid = {
+                {1,2,3},
+                {4,5,6},
+                {7,8,9}
+        };
+
+        System.out.println(Arrays.deepToString(grid));
+        Matrix.rotate(grid);
+        System.out.println(Arrays.deepToString(grid));
     }
 
     public static void commonProblems() {
