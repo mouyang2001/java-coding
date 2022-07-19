@@ -418,6 +418,12 @@ public class CommonProblems {
         }
     }
 
+    public static class MyComparator2 implements Comparator<MyClass2> {
+        public int compare(MyClass2 c1, MyClass2 c2) {
+            return Integer.compare(c2.getVal(), c1.getVal());
+        }
+    }
+
     public static void priorityQueueComparator() {
         PriorityQueue<MyClass> pq = new PriorityQueue<>(new MyComparator());
         pq.add(new MyClass(10));
@@ -427,5 +433,29 @@ public class CommonProblems {
 
         System.out.println(Objects.requireNonNull(pq.poll()).val);
         System.out.println(Objects.requireNonNull(pq.poll()).val);
+
+        PriorityQueue<MyClass2> pq2 = new PriorityQueue<>(new MyComparator2());
+        pq2.add(new MyClass2(10));
+        pq2.add(new MyClass2(20));
+        pq2.add(new MyClass2(30));
+
+        System.out.println(Objects.requireNonNull(pq2.poll()).getVal());
+        System.out.println(Objects.requireNonNull(pq2.poll()).getVal());
+    }
+
+    public static class MyClass2 {
+        private int val;
+
+        public MyClass2(int val) {
+            this.val = val;
+        }
+
+        public int getVal() {
+            return this.val;
+        }
+
+        public void setVal(int val) {
+            this.val = val;
+        }
     }
 }
