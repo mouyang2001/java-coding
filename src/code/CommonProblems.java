@@ -458,4 +458,32 @@ public class CommonProblems {
             this.val = val;
         }
     }
+
+    /**
+     * definition of disjoint a vs b, a vs c, b vs c.
+     * option 1: 3 nested for loops, n^3 complexity O(n^3)
+     * option 2: use hashsets to check for reoccurring values O(i+j+k), space O(i+j+k)
+     * @param a set A of integers.
+     * @param b set B of integers.
+     * @param c set C of integers.
+     */
+    public static boolean threeDisjointSets(int[] a, int[] b, int[] c) {
+        HashSet<Integer> setA = new HashSet<>();
+        HashSet<Integer> setB = new HashSet<>();
+
+        for (int i = 0; i < a.length; i++) {
+            setA.add(a[i]);
+        }
+
+        for (int i = 0; i < b.length; i++) {
+            if (setA.contains(b[i])) return false;
+            setB.add(b[i]);
+        }
+
+        for (int i = 0; i < c.length; i++) {
+            if (setB.contains(c[i])) return false;
+        }
+
+        return true;
+    }
 }

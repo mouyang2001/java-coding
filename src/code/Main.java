@@ -7,6 +7,8 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import static code.CommonProblems.threeDisjointSets;
+
 public class Main {
     public static void main(String[] args) {
 //        leetcodeDebugging();
@@ -83,6 +85,8 @@ public class Main {
         CommonProblems.splitDigits(11, 2);
 
         CommonProblems.priorityQueueComparator();
+
+        System.out.println(threeDisjointSets(new int[] {1,2,3}, new int[] {4,5,6}, new int[] {6,8,9}));
     }
 
     public static void designProblems() {
